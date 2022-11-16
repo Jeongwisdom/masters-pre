@@ -14,6 +14,18 @@ public class Maze {
             {1, 1, 1, 1, 1, 1, 1, 0}
     };
 
+    static void printMyMaze() {
+        for (int[] ints : myMaze) {
+            for (int j = 0; j < myMaze.length; j++) {
+                if (ints[j] == 0)
+                    System.out.print(" ");
+                else
+                    System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
     static int[] dx = {1, 0, -1, 0};
     static int[] dy = {0, 1, 0, -1};
 
@@ -50,15 +62,7 @@ public class Maze {
 
     public static void main(String[] args) {
         System.out.println("출구는 (" + (myMaze.length-1) + "," + (myMaze.length-1) + ") 입니다.");
-        for(int i = 0; i < myMaze.length; i++) {
-            for(int j = 0; j < myMaze.length; j++) {
-                if(myMaze[i][j] == 0)
-                    System.out.print(" ");
-                else
-                    System.out.print("*");
-            }
-            System.out.println();
-        }
+        printMyMaze();
         Maze.DFS(0,0);
     }
 }
